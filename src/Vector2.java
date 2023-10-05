@@ -1,4 +1,4 @@
-public class Vector2 extends MathObject {
+public class Vector2 extends MathObject implements Cloneable {
     public static void main(String[] args) throws Exception {
         Vector2 a = new Vector2(1, 2); 
         Vector2 b = new Vector2(4, 2);
@@ -7,7 +7,11 @@ public class Vector2 extends MathObject {
         System.out.println("a plus b = " + a.add(b));
         System.out.println("is a equal to b? " + a.equals(b));
         System.out.println("Vector2 a has how many dimensions? " + a.getDimension());
-
+        
+        Vector2 c = (Vector2)a.clone();
+        System.out.println("Vector2 c, " + c + ", is a clone of a, " + a);
+        c.setX(3);
+        System.out.println("I can use .setX() to change c without changing a: c " + c + ", a " + a);
     }
 
     private int x;
@@ -20,6 +24,11 @@ public class Vector2 extends MathObject {
 
     public int getDimension() {
         return 2;
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     public int getX () {
