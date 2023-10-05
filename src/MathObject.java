@@ -1,5 +1,5 @@
 public abstract class MathObject  {
-    private String description;
+    protected String description;
 
     public MathObject () {
         description = "";
