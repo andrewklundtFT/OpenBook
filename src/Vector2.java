@@ -1,4 +1,4 @@
-public class Vector2 {
+public class Vector2 extends MathObject {
     public static void main(String[] args) throws Exception {
         Vector2 a = new Vector2(1, 2); 
         Vector2 b = new Vector2(4, 2);
@@ -6,15 +6,20 @@ public class Vector2 {
         System.out.println(b + " b magnitude: " + b.magnitude());
         System.out.println("a plus b = " + a.add(b));
         System.out.println("is a equal to b? " + a.equals(b));
+        System.out.println("Vector2 a has how many dimensions? " + a.getDimension());
 
     }
 
     private int x;
     private int y;
 
-    public Vector2(int userX, int userY) {
-        x = userX;
-        y = userY;
+    public Vector2(int clientX, int clientY) {
+        x = clientX;
+        y = clientY;
+    }
+
+    public int getDimension() {
+        return 2;
     }
 
     public int getX () {
@@ -25,12 +30,12 @@ public class Vector2 {
         return y;
     }
 
-    public void setX (int userX) {
-        x = userX;
+    public void setX (int clientX) {
+        x = clientX;
     }
 
-    public void setY (int userY) {
-        y = userY;
+    public void setY (int clientY) {
+        y = clientY;
     }
 
     public double magnitude () {
